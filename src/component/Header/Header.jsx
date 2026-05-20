@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Images/logo.png";
 
 const navLinks = [
@@ -17,6 +18,7 @@ const navLinks = [
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="relative w-full overflow-hidden bg-linear-to-b from-[#faf8f6] to-transparent">
@@ -48,32 +50,37 @@ const Header = () => {
           <div className="mx-auto mt-6 flex max-w-425 items-center justify-between gap-10 px-20 pb-6">
             <div className="flex w-full items-center justify-between">
               <nav className="flex items-center gap-9">
-                {navLinks.map((item, index) => (
-                  <motion.a
-                    key={index}
-                    href={item.href}
-                    whileHover={{ y: -2 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className={`group relative text-[18px] tracking-wide transition-all duration-300 ${
-                      item.name === "Home"
-                        ? "font-bold text-[#5b3528]"
-                        : "text-[#6f6b67]"
-                    }`}
-                    style={{
-                      fontFamily: "var(--font-menu)",
-                    }}
-                  >
-                    {item.name}
+                {navLinks.map((item, index) => {
+                  const isActive = location.pathname === item.href;
 
-                    <span
-                      className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-[#8b5e4a] transition-all duration-300 ${
-                        item.name === "Home"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    />
-                  </motion.a>
-                ))}
+                  return (
+                    <motion.div
+                      key={index}
+                      whileHover={{ y: -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Link
+                        to={item.href}
+                        className={`group relative text-[18px] tracking-wide transition-all duration-300 ${
+                          isActive
+                            ? "font-bold text-[#5b3528]"
+                            : "text-[#6f6b67]"
+                        }`}
+                        style={{
+                          fontFamily: "var(--font-menu)",
+                        }}
+                      >
+                        {item.name}
+
+                        <span
+                          className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-[#8b5e4a] transition-all duration-300 ${
+                            isActive ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
+                        />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               <motion.a
@@ -109,11 +116,12 @@ const Header = () => {
           alt="Logo"
           className="h-16 w-auto object-contain drop-shadow-sm"
         />
+
         <motion.button
           whileTap={{ scale: 0.9 }}
           animate={mobileMenu ? "open" : "closed"}
           onClick={() => setMobileMenu(true)}
-          className="relative flex h-13 w-13 items-center justify-center overflow-hidden rounded-full bg-transparent "
+          className="relative flex h-13 w-13 items-center justify-center overflow-hidden rounded-full bg-transparent"
         >
           <div className="absolute inset-0 bg-linear-to-br from-white/40 to-transparent" />
 
@@ -161,55 +169,61 @@ const Header = () => {
                 <img
                   src={logo}
                   alt="Logo"
-                  className="relative z-10 h-16 w-auto  object-contain"
+                  className="relative z-10 h-16 w-auto object-contain"
                 />
 
                 <motion.button
                   whileTap={{ scale: 0.9, rotate: 90 }}
                   onClick={() => setMobileMenu(false)}
-                  className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-transparent text-[#5b3528] "
+                  className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-transparent text-[#5b3528]"
                 >
                   <X size={22} />
                 </motion.button>
               </div>
 
               <nav className="flex flex-1 flex-col px-6 py-7">
-                {navLinks.map((item, index) => (
-                  <motion.a
-                    key={index}
-                    href={item.href}
-                    onClick={() => setMobileMenu(false)}
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: 0.08 + index * 0.06,
-                      duration: 0.45,
-                    }}
-                    whileHover={{ x: 6 }}
-                    className={`group relative overflow-hidden border-b border-[#f2e9e4] py-4 text-[18px] tracking-wide transition-all duration-300 ${
-                      item.name === "Home"
-                        ? "font-semibold text-[#5b3528]"
-                        : "text-[#6f6b67]"
-                    }`}
-                    style={{
-                      fontFamily: "var(--font-menu)",
-                    }}
-                  >
-                    <span className="absolute inset-0 -translate-x-full bg-[#f7f1ec] transition-transform duration-500 group-hover:translate-x-0" />
+                {navLinks.map((item, index) => {
+                  const isActive = location.pathname === item.href;
 
-                    <span className="relative z-10 flex items-center justify-between">
-                      {item.name}
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: 0.08 + index * 0.06,
+                        duration: 0.45,
+                      }}
+                      whileHover={{ x: 6 }}
+                    >
+                      <Link
+                        to={item.href}
+                        onClick={() => setMobileMenu(false)}
+                        className={`group relative block overflow-hidden border-b border-[#f2e9e4] py-4 text-[18px] tracking-wide transition-all duration-300 ${
+                          isActive
+                            ? "font-semibold text-[#5b3528]"
+                            : "text-[#6f6b67]"
+                        }`}
+                        style={{
+                          fontFamily: "var(--font-menu)",
+                        }}
+                      >
+                        <span className="absolute inset-0 -translate-x-full bg-[#f7f1ec] transition-transform duration-500 group-hover:translate-x-0" />
 
-                      <span className="text-[#b89b8b] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                        →
-                      </span>
-                    </span>
-                  </motion.a>
-                ))}
+                        <span className="relative z-10 flex items-center justify-between">
+                          {item.name}
+
+                          <span className="text-[#b89b8b] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                            →
+                          </span>
+                        </span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               <div className="relative border-t border-[#efe4dd] p-6">
-                {/* Glow */}
                 <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#d8b7a3]/20 blur-3xl" />
 
                 <motion.a

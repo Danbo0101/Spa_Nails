@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { Outlet } from "react-router-dom";
 import Header from "./component/Header/Header";
-// import Footer from "./component/Footer/Footer";
+import Footer from "./component/Footer/Footer";
 
 const App = () => {
   const [visible, setVisible] = useState(false);
@@ -56,7 +56,7 @@ const App = () => {
     <div className="w-full">
       <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
 
       {/* {isModalOpen && popupStep <= popupImages.length && (
         <div

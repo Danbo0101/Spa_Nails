@@ -4,7 +4,10 @@ import { Bounce, ToastContainer } from "react-toastify";
 import FuzzyText from "./utils/FuzzyText.jsx";
 import App from "./App.jsx";
 import ScrollToTop from "./routes/ScrollToTop.jsx";
-// import HomePage from "./component/Page/HomePage.jsx";
+import HomePage from "./component/Page/HomePage.jsx";
+import About from "./component/Page/About.jsx";
+import GiftCards from "./component/Page/GiftCards.jsx";
+import Memberships from "./component/Page/Memberships.jsx";
 // import Services from "./component/Page/Services.jsx";
 // import Gallery from "./component/Page/Gallery.jsx";
 // import Contact from "./component/Page/Contact.jsx";
@@ -24,8 +27,11 @@ const Layout = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
-          {/* <Route index element={<HomePage />} />
-          <Route path="services" element={<Services />} />
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<About />} />
+          <Route path="gift-cards" element={<GiftCards />} />
+          <Route path="memberships" element={<Memberships />} />
+          {/*<Route path="services" element={<Services />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Policies />} /> */}
