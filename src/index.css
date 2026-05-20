@@ -1,5 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Great+Vibes&display=swap");
+
 @import "tailwindcss";
 
+@theme {
+  --font-menu: "Alice", serif;
+  --font-logo: "Great Vibes", cursive;
+  --font-paytone: "Paytone One", Helvetica, Arial, Lucida, sans-serif;
+}
+
+@theme {
+}
+@theme {
+}
 html {
   scroll-behavior: smooth;
 }
@@ -11,7 +23,7 @@ html {
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: black;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

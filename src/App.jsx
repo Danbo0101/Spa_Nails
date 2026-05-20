@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { Outlet } from "react-router-dom";
-// import Header from "./component/Header/Header";
+import Header from "./component/Header/Header";
 // import Footer from "./component/Footer/Footer";
 
 const App = () => {
@@ -54,7 +54,7 @@ const App = () => {
 
   return (
     <div className="w-full">
-      {/* <Header /> */}
+      <Header />
       <Outlet />
       {/* <Footer /> */}
 
