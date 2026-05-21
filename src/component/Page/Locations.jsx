@@ -100,17 +100,17 @@ const LunaraManhattanGallery = () => {
               }}
               viewport={{ once: true }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-[26px] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.06)]"
+              className="group relative overflow-hidden rounded-[28px] bg-white shadow-[0_15px_60px_rgba(0,0,0,0.06)]"
             >
-              <div className="absolute inset-0 z-10 bg-linear-to-t from-black/35 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+              <div className="absolute inset-0 z-10 bg-linear-to-t from-black/40 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
 
               <img
                 src={image}
                 alt=""
-                className="w-full h-47.5:h-[260px] object-cover transition duration-700 group-hover:scale-110"
+                className="w-full h-47.5 md:h-65 object-cover transition duration-700 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 rounded-[26px] border border-white/0 group-hover:border-white/20 z-20 transition duration-500" />
+              <div className="absolute inset-0 rounded-[28px] border border-white/0 group-hover:border-white/20 z-20 transition duration-500" />
 
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -118,7 +118,7 @@ const LunaraManhattanGallery = () => {
                 className="absolute bottom-5 left-5 z-30"
               >
                 <span className="text-white text-[11px] md:text-sm tracking-[0.25em] uppercase">
-                  View Space
+                  Explore Space
                 </span>
               </motion.div>
             </motion.button>

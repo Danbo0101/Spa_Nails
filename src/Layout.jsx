@@ -11,9 +11,8 @@ import Memberships from "./component/Page/Memberships.jsx";
 import Packages from "./component/Page/Packages.jsx";
 import FAQS from "./component/Page/FAQs.jsx";
 import Locations from "./component/Page/Locations.jsx";
-// import Services from "./component/Page/Services.jsx";
-// import Gallery from "./component/Page/Gallery.jsx";
-// import Contact from "./component/Page/Contact.jsx";
+import Services from "./component/Page/Services.jsx";
+import Contact from "./component/Page/Contact.jsx";
 // import Policies from "./component/Page/Policies.jsx";
 
 const NotFound = () => {
@@ -37,10 +36,9 @@ const Layout = () => {
           <Route path="packages" element={<Packages />} />
           <Route path="faqs" element={<FAQS />} />
           <Route path="locations" element={<Locations />} />
-          {/*<Route path="services" element={<Services />} />
-          <Route path="gallery" element={<Gallery />} />
+          <Route path="services" element={<Services />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="privacy" element={<Policies />} /> */}
+          {/*<Route path="privacy" element={<Policies />} /> */}
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
