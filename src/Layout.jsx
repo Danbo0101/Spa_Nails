@@ -8,6 +8,9 @@ import HomePage from "./component/Page/HomePage.jsx";
 import About from "./component/Page/About.jsx";
 import GiftCards from "./component/Page/GiftCards.jsx";
 import Memberships from "./component/Page/Memberships.jsx";
+import Packages from "./component/Page/Packages.jsx";
+import FAQS from "./component/Page/FAQs.jsx";
+import Locations from "./component/Page/Locations.jsx";
 // import Services from "./component/Page/Services.jsx";
 // import Gallery from "./component/Page/Gallery.jsx";
 // import Contact from "./component/Page/Contact.jsx";
@@ -31,6 +34,9 @@ const Layout = () => {
           <Route path="about" element={<About />} />
           <Route path="gift-cards" element={<GiftCards />} />
           <Route path="memberships" element={<Memberships />} />
+          <Route path="packages" element={<Packages />} />
+          <Route path="faqs" element={<FAQS />} />
+          <Route path="locations" element={<Locations />} />
           {/*<Route path="services" element={<Services />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
